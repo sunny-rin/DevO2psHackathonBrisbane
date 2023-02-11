@@ -45,9 +45,10 @@ jobs:
       uses: Azure/arm-deploy@v1
       with:
         scope: resourcegroup
+        subscriptionId: 4473dee2-2e85-4849-b421-5cc5baf520b5
         resourceGroupName: DevOpsBrisbane
         template: ./ARM-Templates/container-webapp-template.json
-        parameters: webAppName=peterdevops-dev-${{ env.targetEnv }}
+        parameters: webAppName=peterdevops-${{ env.targetEnv }}
 
 
 
