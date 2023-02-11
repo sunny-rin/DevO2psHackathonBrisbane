@@ -16,6 +16,10 @@ on:
         # Input has to be provided for the workflow to run
         required: true
 
+
+env:
+  targetEnv: test
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build-and-deploy"
@@ -44,6 +48,7 @@ jobs:
         subscriptionId: 4473dee2-2e85-4849-b421-5cc5baf520b5
         resourceGroupName: DevOpsBrisbane
         template: ./ARM-Templates/container-webapp-template.json
+        parameters: webAppName=peterdevops-${{ env.targetEnv }}
 
 
 
