@@ -32,3 +32,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3.3.0
 
+    - name: Azure Login
+      uses: Azure/login@v1
+      with:
+        creds: ${{ secrets.AZURECREDENTIALS }}
+    
+    - name: Deploy Azure Resource Manager (ARM) Template
+      uses: Azure/arm-deploy@v1
+      with:
+        subscriptionId: 4473dee2-2e85-4849-b421-5cc5baf520b5
+        resourceGroupName: DevOpsBrisbane
+        template: ..\ARM-Templates\container-webapp-template.json
+
+
+
